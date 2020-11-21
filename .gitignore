@@ -16,3 +16,15 @@ ConsoleApp1/obj/Debug/netcoreapp3.1/ConsoleApp1.AssemblyInfo.cs
 ConsoleApp1/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
 
 ConsoleApp1/obj/Release/netcoreapp3.1/ConsoleApp1.AssemblyInfo.cs
+
+ConsoleApp1/.vs/ConsoleApp1/v16/.suo
+
+*.dll
+
+*.exe
+
+*.pdb
+
+*.txt
+
+ConsoleApp1/ConsoleApp1.csproj

@@ -2,23 +2,23 @@
 
 namespace FeelWords
 {
-	class consolewrite
+	class ConsoleWrite//Menu
 	{
-		public void NewGame()
+		public static void NewGame()
 		{
-			Console.WriteLine("NEW GAME");
+			Console.WriteLine(Program.Function[0]);//ga
 		}
-		public void Continue()
+		public static void Continue()
 		{
-			Console.WriteLine("CONTINUE");
+			Console.WriteLine(Program.Function[1]);
 		}
-		public void Rating()
+		public static void Rating()
 		{
-			Console.WriteLine("RATING");
+			Console.WriteLine(Program.Function[2]);
 		}//рейтинг
-		public void Exit()
+		public static void Exit()
         {
-			Console.WriteLine("EXIT");
+			Console.WriteLine(Program.Function[3]);
         }
 	}
 }
