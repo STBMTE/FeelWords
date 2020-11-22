@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace FeelWords
 {
-    class Drowing
+    class DrowingMenu
     {
         private static int Overflow(int e)
         {
@@ -39,7 +39,7 @@ namespace FeelWords
         {
             int y = Overflow(IdFunction);
             int x = (CenteringPositionCalculation() / 2) - (LengthNameFunction/2);
-            Console.SetCursorPosition(x, y);
+            Drow.WritePositionElement(x, y);
             return y;
         }
     }

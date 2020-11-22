@@ -5,6 +5,7 @@ namespace FeelWords
     
     class Program
     {
+        
         public static string[] Function = new string[4] {"NEW GAME", "CONTINUE", "RATING", "EXIT"};
         public static void Write(int i)
         {
@@ -14,20 +15,20 @@ namespace FeelWords
         public static int Redrawing(int IdFunction, int delta = 0)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            IdFunction = Drowing.Rendering(Function[Drowing.Over(IdFunction + delta)].Length, (IdFunction + delta));
+            IdFunction = DrowingMenu.Rendering(Function[DrowingMenu.Over(IdFunction + delta)].Length, (IdFunction + delta));
             Write(IdFunction);
             Console.ResetColor();
             return IdFunction;
         }
 
-        static void Main()
+        public static void MenuPoint()
         {
             int IdFunction = 0;
-            ConsoleKeyInfo key;
+            Console.Clear();
             for (int i = 0; i < 4; i++)
             {
-                Drowing.Rendering(Function[i].Length, i);
-                
+                DrowingMenu.Rendering(Function[i].Length, i);
+
                 if (i == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -37,11 +38,17 @@ namespace FeelWords
                 }
                 Write(i);
             }
+        }
 
+        public static void Main()
+        {
+            int IdFunction = 0;
+            ConsoleKeyInfo key;
+            MenuPoint();
             while (true)
             {
                 key = Console.ReadKey();
-                IdFunction = Drowing.Rendering(Function[IdFunction].Length, IdFunction);
+                IdFunction = DrowingMenu.Rendering(Function[IdFunction].Length, IdFunction);
                 Write(IdFunction);
                 switch (key.Key)
                 {
@@ -73,6 +80,8 @@ namespace FeelWords
             {
                 case 0:
                     NewGame.NewGames();
+                    Console.Clear();
+                    Program.Main();
                     break;/*
                 case 1:
                     Continues.Continue();
