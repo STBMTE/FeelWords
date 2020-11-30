@@ -69,12 +69,13 @@ namespace FeelWords
         }
         public static void NewGames()
         {
-            FillingInTheArrayField.FillingField(4, 10);
+            
             Field Fields = new Field();
             Console.Clear();
             string PlayerName = AskPlayerName();
             Fields.width = Read(1);
             Fields.higth = Read(2);
+            FillingInTheArrayField.FillingField(Fields.width, Fields.higth);
         }
     }
 }

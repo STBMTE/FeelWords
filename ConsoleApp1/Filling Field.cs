@@ -50,11 +50,14 @@ namespace FeelWords
                     {
                         SymbolArray[i, j] = leftthecentersection;
                     }
-                    if (((j == 0) || (j == b * 2)) && i != 0 && i != a * 2 && (i % 2) != 0)
+                    if ((((j == 0) || (j == b * 2)) && i != 0 && i != a * 2 && (i % 2) != 0) || ( i != 0 && (i % 2) != 0 && (j % 2) == 0))
                     {
                         SymbolArray[i, j] = horizontalbar;
                     }
-                    
+                    if ((j == b * 2) && (i % 2) == 0)
+                    {
+                        SymbolArray[i, j] = centerbottomsection;
+                    } 
                 }
             }
 
