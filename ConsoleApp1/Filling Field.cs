@@ -19,26 +19,28 @@ namespace FeelWords
         private static string horizontalbar = "─";
         private static bool BoundaryElements(int a)
         {
-            return ((a % 2) == 0);
+            return ((a % 4) == 0);
         }
 
+        
         public static void FillingField(int a, int b)// a - Ox; b - Oy;
         {
-            var SymbolArray = new string[a * 2 + 1, b * 2 + 1];
-
-            for (int i = 0; i <= a*2; i++)// i - Ox;
+            int rt = 0;
+            var SymbolArray = new string[a * 4 + 1, b * 4 + 1];
+            Console.Clear();
+            for (int i = 0; i <= a * 4; i++)// i - Ox;
             {
-                for (int j = 0; j <= b*2; j++) // j - Oy
+                for (int j = 0; j <= b*4; j++) // j - Oy
                 {
-                    if(BoundaryElements(i) && j == 0 && i != 0)
+                    if (BoundaryElements(i) && j == 0 && i != 0)
                     {
-                        SymbolArray[i,j] = thetopitersection;
+                        SymbolArray[i, j] = thetopitersection;
                     }
-                    if(BoundaryElements(i) && j != 0 && ((j % 2) != 0))
+                    if (BoundaryElements(i) && j != 0 && ((j % 4) != 0))
                     {
                         SymbolArray[i, j] = verticalbar;
                     }
-                    if(BoundaryElements(i) && j != 0 && BoundaryElements(j))
+                    if (BoundaryElements(i) && j != 0 && BoundaryElements(j))
                     {
                         SymbolArray[i, j] = centersection;
                     }
@@ -46,31 +48,37 @@ namespace FeelWords
                     {
                         SymbolArray[i, j] = rigthcentersection;
                     }
-                    if (BoundaryElements(j) && j != 0 && i == a * 2)
+                    if (BoundaryElements(j) && j != 0 && i == a * 4)
                     {
                         SymbolArray[i, j] = leftthecentersection;
                     }
-                    if ((((j == 0) || (j == b * 2)) && i != 0 && i != a * 2 && (i % 2) != 0) || ( i != 0 && (i % 2) != 0 && (j % 2) == 0))
+                    if ((((j == 0) || (j == b * 4)) && i != 0 && i != a * 4 && (i % 4) != 0) || (i != 0 && (i % 4) != 0 && (j % 4) == 0))
                     {
                         SymbolArray[i, j] = horizontalbar;
                     }
-                    if ((j == b * 2) && (i % 2) == 0)
+                    if ((j == b * 4) && (i % 4) == 0)
                     {
                         SymbolArray[i, j] = centerbottomsection;
-                    } 
+                    }
                 }
             }
 
             SymbolArray[0, 0] = rightthetopcorner;
-            SymbolArray[0, b*2] = rigthbottomcross;
-            SymbolArray[a*2, 0] = leftthetopcorner;
-            SymbolArray[a*2, b*2] = leftbottomcross;
+            SymbolArray[0, b*4] = rigthbottomcross;
+            SymbolArray[a*4, 0] = leftthetopcorner;
+            SymbolArray[a*4, b*4] = leftbottomcross;
 
-            for (int i = 0; i <= a * 2; i++)
+            for (int i = 0; i <= a * 4; i++)
             {
-                for (int j = 0; j <= b * 2; j++)
+                for (int j = 0; j <= b * 4; j++)
                 {
                     Console.SetCursorPosition(i, j);
+                    
+                    if (i % 2 == 0 && j % 2 == 0 && i % 4 != 0 && j % 4 != 0)
+                    {
+                        ++rt;
+                        SymbolArray[i, j] = Convert.ToString(rt);
+                    }
                     Console.WriteLine(SymbolArray[i, j]);
                 }
             }

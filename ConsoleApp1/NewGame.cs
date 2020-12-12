@@ -21,8 +21,8 @@ namespace FeelWords
     }
     class Field
     {
-        public int width;
-        public int higth;
+        public int width { get; set; }
+        public int higth { get; set; }
     }
     class NewGame
     {
@@ -67,9 +67,9 @@ namespace FeelWords
             Console.WriteLine("Введите ваш ник-нейм:");
             return Console.ReadLine();
         }
+
         public static void NewGames()
         {
-            
             Field Fields = new Field();
             Console.Clear();
             string PlayerName = AskPlayerName();
@@ -77,5 +77,30 @@ namespace FeelWords
             Fields.higth = Read(2);
             FillingInTheArrayField.FillingField(Fields.width, Fields.higth);
         }
+    }
+
+    class WordsArray 
+    {
+        private static int width1;
+        private static int hidth1;
+
+        public int width
+        {
+            set
+            {
+                width1 = width;
+            }
+            get { return width; }
+        }
+        public int hidth 
+        {
+            set
+            {
+                hidth1 = hidth;
+            }
+            get { return width; }
+        }
+
+        public string[,] SymbolArray = new string[width1, hidth1];
     }
 }
